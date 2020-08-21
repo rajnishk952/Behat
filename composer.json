@@ -1,0 +1,20 @@
+{
+    "require": {
+        "behat/behat": "2.5.*@stable",
+	    "facebook/webdriver": "dev-master",
+        "browserstack/browserstack-local": "dev-master",
+        "symfony/yaml": "*"
+    },
+    "config": {
+        "bin-dir": "bin/"
+    },
+    "scripts": {
+        "test": "composer single && composer local && composer parallel",
+        "single": "./bin/behat --config=config/single.conf.yml",
+        "local": "./bin/behat --config=config/local.conf.yml",
+        "parallel": "CONFIG_FILE=config/parallel.conf.yml /usr/bin/env php lib/parallel.php"
+    },
+    "autoload": {
+        "classmap": ["lib/"]
+    }
+}
